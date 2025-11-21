@@ -1,0 +1,725 @@
+/* --- IMPORTAR FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap');
+
+/* --- VARIABLES GLOBALES DE COLOR (Opción D: Híbrido Confiable) --- */
+:root {
+    /* Fondos */
+    --color-fondo-oscuro: #1A103C;        /* Índigo (para Header/Footer/Hero) */
+    --color-fondo-claro: #FFFFFF;         /* Blanco (para Contenido) */
+    --color-fondo-claro-alt: #F8F9FA;    /* Gris claro (para alternar) */
+
+    /* Textos */
+    --color-texto-oscuro: #212529;      /* Carbón (para párrafos en fondo claro) */
+    --color-texto-claro: #FFFFFF;         /* Blanco (para párrafos en fondo oscuro) */
+
+    /* Acentos */
+    --acento-cta: #00C9A7;                /* Verde Esmeralda/Teal (Botones) */
+    --acento-titulos: #004AAD;             /* Azul Corporativo (Títulos) */
+}
+
+/* --- RESETEO BÁSICO Y ESTILOS GLOBALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--acento-titulos); /* Títulos en Azul Corporativo */
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+a {
+    color: var(--acento-titulos);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--acento-cta);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- ESTILOS DE BOTONES (CTA) --- */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-cta, .btn-cta-primary {
+    background-color: var(--acento-cta);
+    color: #000;
+}
+.btn-cta:hover, .btn-cta-primary:hover {
+    background-color: #009c82;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 201, 167, 0.3);
+}
+
+.btn-cta-secondary {
+    background-color: transparent;
+    color: var(--acento-titulos);
+    border: 2px solid var(--acento-titulos);
+}
+.btn-cta-secondary:hover {
+    background-color: var(--acento-titulos);
+    color: var(--color-texto-claro);
+}
+
+
+/* --- NAVEGACIÓN (FONDO OSCURO) --- */
+.navbar {
+    background-color: var(--color-fondo-oscuro);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, top 0.3s ease;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar .logo img {
+    height: 140px; /* !! LOGO GRANDE (DOBLE TAMAÑO) !! */
+}
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+.navbar .nav-links li {
+    margin-left: 2rem;
+}
+.navbar .nav-links a {
+    color: var(--color-texto-claro); /* Texto blanco en nav */
+    font-weight: 600;
+}
+.navbar .nav-links a.current,
+.navbar .nav-links a:hover {
+    color: var(--acento-cta); /* Verde para activo/hover */
+}
+
+/* --- SECCIÓN HERO (INDEX) (FONDO OSCURO) --- */
+.hero {
+    padding: 6rem 0;
+    text-align: center;
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro); /* Texto claro aquí */
+    position: relative;
+    overflow: hidden; 
+}
+.hero h1 {
+    font-size: 3.5rem; 
+    color: var(--color-texto-claro); /* H1 en blanco */
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+.hero .subtitulo {
+    font-size: 1.25rem;
+    color: #E0E0E0; /* Subtítulo en gris claro */
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+.hero-buttons .btn {
+    margin: 0 0.5rem;
+}
+.hero .btn-cta-secondary {
+    color: var(--acento-cta);
+    border-color: var(--acento-cta);
+}
+.hero .btn-cta-secondary:hover {
+    background-color: var(--acento-cta);
+    color: #000;
+}
+
+/* --- SERVICIOS RESUMEN (INDEX) (FONDO CLARO) --- */
+.servicios {
+    padding: 5rem 0;
+    text-align: center;
+    background-color: var(--color-fondo-claro);
+}
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: left;
+}
+.servicio-card {
+    background-color: #FFFFFF;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.enlace-servicio {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: var(--acento-cta); /* Enlace en Verde */
+}
+.enlace-servicio:hover {
+    color: var(--acento-titulos); /* Hover a Azul */
+}
+
+/* --- NOSOTROS RESUMEN (INDEX) (FONDO CLARO ALTERNATIVO) --- */
+.nosotros {
+    padding: 5rem 0;
+    background-color: var(--color-fondo-claro-alt); /* Fondo Gris claro */
+    text-align: center;
+}
+.nosotros .container {
+    max-width: 800px;
+}
+
+/* --- FOOTER (FONDO OSCURO) --- */
+.footer {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
+    padding: 4rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-logo {
+    height: 35px;
+    opacity: 0.8;
+}
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.footer-contacto h4, .footer-links h4 {
+    color: var(--color-texto-claro);
+    margin-bottom: 1rem;
+}
+.footer-links ul {
+    list-style: none;
+}
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+.footer-links a, .footer-contacto a {
+    color: #E0E0E0; /* Texto de enlace gris claro */
+}
+.footer-links a:hover, .footer-contacto a:hover {
+    color: var(--acento-cta); /* Hover Verde */
+}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* --- ESTILOS PARA ANIMACIÓN MATRIX (INDEX) --- */
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Detrás del contenido */
+    opacity: 0.15; /* Sutil */
+}
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- ESTILOS DE PÁGINAS INTERNAS (Servicios, Nosotros, etc.) --- */
+.page-hero {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
+    padding: 4rem 0;
+    text-align: center;
+}
+.page-hero h1 {
+    color: var(--color-texto-claro);
+    font-size: 3rem;
+}
+.page-hero .subtitulo {
+    font-size: 1.25rem;
+    color: #E0E0E0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estilos para la lista detallada de servicios */
+.servicios-detalle {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro);
+}
+.servicio-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+.servicio-item:last-child {
+    margin-bottom: 0;
+}
+.servicio-item.reverse {
+    flex-direction: row-reverse;
+}
+.servicio-item-texto {
+    flex: 1;
+}
+.servicio-item-texto h3 {
+    color: var(--acento-cta);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.servicio-item-texto h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+.servicio-item-texto p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+.servicio-item-imagen {
+    flex: 1;
+}
+.servicio-item-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección "El Plus" (Diferenciadores) */
+.nuestro-plus {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro-alt);
+    text-align: center;
+}
+.nuestro-plus h2 {
+    margin-bottom: 4rem;
+}
+.plus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+.plus-card {
+    background-color: #FFFFFF;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.plus-card svg {
+    width: 50px;
+    height: 50px;
+    color: var(--acento-titulos);
+    margin-bottom: 1.5rem;
+}
+.plus-card h3 {
+    color: var(--acento-titulos);
+    margin-bottom: 1rem;
+}
+
+/* Sección CTA Final */
+.cta-final {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro);
+    text-align: center;
+}
+.cta-final .container {
+    max-width: 700px;
+}
+.cta-final h2 {
+    font-size: 2.5rem;
+}
+.cta-final p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+.cta-final .btn-cta-primary {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+}
+
+/* --- ESTILOS PÁGINA "NOSOTROS" --- */
+.nuestra-historia {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro);
+}
+.historia-contenido {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+.historia-texto {
+    flex: 1;
+}
+.historia-texto h2 {
+    font-size: 2.5rem;
+}
+.historia-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+.historia-imagen {
+    flex: 1;
+}
+.historia-imagen img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección del Equipo (CORREGIDA Y FINAL) */
+.nuestro-equipo {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro-alt);
+    text-align: center;
+}
+.nuestro-equipo h2 {
+    font-size: 3rem; 
+    margin-bottom: 2rem;
+    color: var(--acento-titulos);
+}
+.equipo-descripcion {
+    max-width: 800px; 
+    margin: 0 auto 3rem; 
+    text-align: center;
+}
+.equipo-descripcion p {
+    font-size: 1.15rem; 
+    line-height: 1.7; 
+    margin-bottom: 1.5rem; 
+}
+.equipo-imagen {
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 0 1rem;
+}
+.equipo-imagen img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- ESTILOS PÁGINA "BLOG" --- */
+
+/* Artículo Destacado (Página blog.html) */
+.articulo-destacado {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro);
+}
+.destacado-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+.destacado-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.destacado-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.destacado-texto {
+    padding: 3rem;
+}
+.destacado-tag {
+    display: inline-block;
+    background-color: var(--acento-cta);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.destacado-texto h2 {
+    font-size: 2rem;
+}
+.destacado-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Categorías (Página blog.html) */
+.explora-categorias {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro-alt);
+    text-align: center;
+}
+.explora-categorias h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.categoria-card {
+    background-color: #FFFFFF;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.categoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.categoria-card h3 {
+    margin-bottom: 1rem;
+}
+
+/* --- ESTILOS PÁGINA "ARTÍCULO" --- */
+.articulo-contenido {
+    padding: 6rem 0;
+}
+.articulo-contenido .container {
+    max-width: 800px; /* Ancho de lectura óptimo */
+}
+.articulo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.articulo-categoria {
+    display: inline-block;
+    background-color: var(--acento-cta); /* Verde */
+    color: #000; /* Texto oscuro */
+    padding: 8px 16px; /* Más grande */
+    border-radius: 20px;
+    font-size: 1rem; /* Más grande */
+    font-weight: 600;
+    margin-bottom: 1.5rem; /* Más espacio */
+}
+.articulo-header h1 {
+    font-size: 3rem;
+    color: var(--color-texto-oscuro); /* H1 de artículo en oscuro */
+}
+.articulo-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+.articulo-imagen-principal {
+    margin-bottom: 3rem;
+}
+.articulo-imagen-principal img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Cuerpo del artículo */
+.articulo-cuerpo {
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+.articulo-cuerpo p {
+    margin-bottom: 1.5rem;
+}
+.articulo-cuerpo h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+.articulo-cuerpo ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.articulo-cuerpo li {
+    margin-bottom: 0.5rem;
+}
+.articulo-cuerpo hr {
+    border: none;
+    height: 1px;
+    background-color: #E0E0E0;
+    margin: 3rem 0;
+}
+
+/* Caja de Puntos Clave */
+.takeaways {
+    background-color: var(--color-fondo-claro-alt);
+    border: 1px solid #E0E0E0;
+    border-left: 5px solid var(--acento-titulos);
+    border-radius: 5px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+.takeaways h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* CTA al final del artículo */
+.articulo-cta {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
+    border-radius: 8px;
+    padding: 3rem;
+    text-align: center;
+}
+.articulo-cta h3 {
+    color: var(--color-texto-claro);
+    font-size: 1.8rem;
+}
+.articulo-cta p {
+    color: #E0E0E0;
+    margin-bottom: 2rem;
+}
+
+/* --- ESTILOS PÁGINA "CONTACTO" --- */
+.contacto-pagina {
+    padding: 6rem 0;
+    background-color: var(--color-fondo-claro);
+}
+.contacto-layout {
+    display: flex;
+    gap: 4rem;
+}
+.formulario-contacto {
+    flex: 2; /* El formulario ocupa 2/3 del espacio */
+}
+.formulario-contacto h2 {
+    font-size: 2.5rem;
+}
+.formulario-contacto p {
+    margin-bottom: 2rem;
+}
+.info-contacto {
+    flex: 1; /* La info ocupa 1/3 */
+    background-color: var(--color-fondo-claro-alt);
+    padding: 2.5rem;
+    border-radius: 8px;
+}
+.info-contacto h2 {
+    font-size: 2.5rem;
+}
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.info-item svg {
+    width: 30px;
+    height: 30px;
+    color: var(--acento-titulos);
+    margin-top: 5px;
+}
+.info-item h3 {
+    margin-bottom: 0.25rem;
+}
+.info-item p {
+    font-size: 1.1rem;
+}
+
+/* Estilos del Formulario */
+.form-grupo {
+    margin-bottom: 1.5rem;
+}
+.form-grupo label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto-oscuro);
+}
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: var(--acento-titulos);
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+}
+.formulario-contacto .btn-cta-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Verde Oficial WhatsApp */
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 35px; /* Tamaño del icono */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000; /* Asegura que esté siempre encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Quita el subrayado */
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.1); /* Crece un poco al pasar el mouse */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    background-color: #20ba5a; /* Un verde un poco más oscuro */
+    color: #FFF; /* Asegura que el icono siga blanco */
+}
+
+/* Ajuste para móviles (un poco más pequeño para no estorbar) */
+@media (max-width: 768px) {
+    .btn-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 28px;
+    }
+}
