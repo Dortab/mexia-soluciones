@@ -29,11 +29,12 @@ body {
     background-color: var(--color-fondo-claro);
     color: var(--color-texto-oscuro);
     line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado en móvil */
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
-    color: var(--acento-titulos); /* Títulos en Azul Corporativo */
+    color: var(--acento-titulos); 
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -52,6 +53,13 @@ a:hover {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
+}
+
+/* Asegura que las imágenes nunca se salgan de su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* --- ESTILOS DE BOTONES (CTA) --- */
@@ -103,9 +111,10 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Permite que el menú se adapte */
 }
 .navbar .logo img {
-    height: 140px; /* !! LOGO GRANDE (DOBLE TAMAÑO) !! */
+    height: 140px; 
 }
 .navbar .nav-links {
     list-style: none;
@@ -115,12 +124,12 @@ a:hover {
     margin-left: 2rem;
 }
 .navbar .nav-links a {
-    color: var(--color-texto-claro); /* Texto blanco en nav */
+    color: var(--color-texto-claro); 
     font-weight: 600;
 }
 .navbar .nav-links a.current,
 .navbar .nav-links a:hover {
-    color: var(--acento-cta); /* Verde para activo/hover */
+    color: var(--acento-cta); 
 }
 
 /* --- SECCIÓN HERO (INDEX) (FONDO OSCURO) --- */
@@ -128,24 +137,24 @@ a:hover {
     padding: 6rem 0;
     text-align: center;
     background-color: var(--color-fondo-oscuro);
-    color: var(--color-texto-claro); /* Texto claro aquí */
+    color: var(--color-texto-claro); 
     position: relative;
     overflow: hidden; 
 }
 .hero h1 {
     font-size: 3.5rem; 
-    color: var(--color-texto-claro); /* H1 en blanco */
+    color: var(--color-texto-claro); 
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
 .hero .subtitulo {
     font-size: 1.25rem;
-    color: #E0E0E0; /* Subtítulo en gris claro */
+    color: #E0E0E0; 
     max-width: 800px;
     margin: 0 auto 2rem;
 }
 .hero-buttons .btn {
-    margin: 0 0.5rem;
+    margin: 0.5rem; /* Más margen para evitar toques accidentales */
 }
 .hero .btn-cta-secondary {
     color: var(--acento-cta);
@@ -185,16 +194,16 @@ a:hover {
     display: inline-block;
     margin-top: 1rem;
     font-weight: 700;
-    color: var(--acento-cta); /* Enlace en Verde */
+    color: var(--acento-cta); 
 }
 .enlace-servicio:hover {
-    color: var(--acento-titulos); /* Hover a Azul */
+    color: var(--acento-titulos); 
 }
 
 /* --- NOSOTROS RESUMEN (INDEX) (FONDO CLARO ALTERNATIVO) --- */
 .nosotros {
     padding: 5rem 0;
-    background-color: var(--color-fondo-claro-alt); /* Fondo Gris claro */
+    background-color: var(--color-fondo-claro-alt); 
     text-align: center;
 }
 .nosotros .container {
@@ -230,10 +239,10 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 .footer-links a, .footer-contacto a {
-    color: #E0E0E0; /* Texto de enlace gris claro */
+    color: #E0E0E0; 
 }
 .footer-links a:hover, .footer-contacto a:hover {
-    color: var(--acento-cta); /* Hover Verde */
+    color: var(--acento-cta); 
 }
 .footer-bottom {
     text-align: center;
@@ -249,15 +258,15 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Detrás del contenido */
-    opacity: 0.15; /* Sutil */
+    z-index: 1; 
+    opacity: 0.15; 
 }
 .hero .container {
     position: relative;
     z-index: 2;
 }
 
-/* --- ESTILOS DE PÁGINAS INTERNAS (Servicios, Nosotros, etc.) --- */
+/* --- ESTILOS DE PÁGINAS INTERNAS --- */
 .page-hero {
     background-color: var(--color-fondo-oscuro);
     color: var(--color-texto-claro);
@@ -313,12 +322,11 @@ a:hover {
 }
 .servicio-item-imagen img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Sección "El Plus" (Diferenciadores) */
+/* Sección "El Plus" */
 .nuestro-plus {
     padding: 6rem 0;
     background-color: var(--color-fondo-claro-alt);
@@ -399,7 +407,7 @@ a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Sección del Equipo (CORREGIDA Y FINAL) */
+/* Sección del Equipo */
 .nuestro-equipo {
     padding: 6rem 0;
     background-color: var(--color-fondo-claro-alt);
@@ -427,14 +435,11 @@ a:hover {
 }
 .equipo-imagen img {
     width: 100%; 
-    height: auto; 
     border-radius: 8px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
 }
 
 /* --- ESTILOS PÁGINA "BLOG" --- */
-
-/* Artículo Destacado (Página blog.html) */
 .articulo-destacado {
     padding: 6rem 0;
     background-color: var(--color-fondo-claro);
@@ -479,7 +484,6 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* Categorías (Página blog.html) */
 .explora-categorias {
     padding: 6rem 0;
     background-color: var(--color-fondo-claro-alt);
@@ -514,7 +518,7 @@ a:hover {
     padding: 6rem 0;
 }
 .articulo-contenido .container {
-    max-width: 800px; /* Ancho de lectura óptimo */
+    max-width: 800px; 
 }
 .articulo-header {
     text-align: center;
@@ -522,17 +526,17 @@ a:hover {
 }
 .articulo-categoria {
     display: inline-block;
-    background-color: var(--acento-cta); /* Verde */
-    color: #000; /* Texto oscuro */
-    padding: 8px 16px; /* Más grande */
+    background-color: var(--acento-cta); 
+    color: #000; 
+    padding: 8px 16px; 
     border-radius: 20px;
-    font-size: 1rem; /* Más grande */
+    font-size: 1rem; 
     font-weight: 600;
-    margin-bottom: 1.5rem; /* Más espacio */
+    margin-bottom: 1.5rem; 
 }
 .articulo-header h1 {
     font-size: 3rem;
-    color: var(--color-texto-oscuro); /* H1 de artículo en oscuro */
+    color: var(--color-texto-oscuro); 
 }
 .articulo-meta {
     font-size: 0.9rem;
@@ -546,8 +550,6 @@ a:hover {
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-
-/* Cuerpo del artículo */
 .articulo-cuerpo {
     font-size: 1.15rem;
     line-height: 1.7;
@@ -573,8 +575,6 @@ a:hover {
     background-color: #E0E0E0;
     margin: 3rem 0;
 }
-
-/* Caja de Puntos Clave */
 .takeaways {
     background-color: var(--color-fondo-claro-alt);
     border: 1px solid #E0E0E0;
@@ -587,8 +587,6 @@ a:hover {
     margin-top: 0;
     margin-bottom: 1rem;
 }
-
-/* CTA al final del artículo */
 .articulo-cta {
     background-color: var(--color-fondo-oscuro);
     color: var(--color-texto-claro);
@@ -615,7 +613,7 @@ a:hover {
     gap: 4rem;
 }
 .formulario-contacto {
-    flex: 2; /* El formulario ocupa 2/3 del espacio */
+    flex: 2; 
 }
 .formulario-contacto h2 {
     font-size: 2.5rem;
@@ -624,7 +622,7 @@ a:hover {
     margin-bottom: 2rem;
 }
 .info-contacto {
-    flex: 1; /* La info ocupa 1/3 */
+    flex: 1; 
     background-color: var(--color-fondo-claro-alt);
     padding: 2.5rem;
     border-radius: 8px;
@@ -650,8 +648,6 @@ a:hover {
 .info-item p {
     font-size: 1.1rem;
 }
-
-/* Estilos del Formulario */
 .form-grupo {
     margin-bottom: 1.5rem;
 }
@@ -692,34 +688,87 @@ a:hover {
     right: 30px;
     width: 60px;
     height: 60px;
-    background-color: #25d366; /* Verde Oficial WhatsApp */
+    background-color: #25d366; 
     color: #FFF;
     border-radius: 50%;
     text-align: center;
-    font-size: 35px; /* Tamaño del icono */
+    font-size: 35px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 10000; /* Asegura que esté siempre encima de todo */
+    z-index: 10000; 
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-    text-decoration: none; /* Quita el subrayado */
+    text-decoration: none; 
 }
 
 .btn-whatsapp:hover {
-    transform: scale(1.1); /* Crece un poco al pasar el mouse */
+    transform: scale(1.1); 
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    background-color: #20ba5a; /* Un verde un poco más oscuro */
-    color: #FFF; /* Asegura que el icono siga blanco */
+    background-color: #20ba5a; 
+    color: #FFF; 
 }
 
-/* Ajuste para móviles (un poco más pequeño para no estorbar) */
+
+/* ==========================================================================
+   VERSIÓN MÓVIL (RESPONSIVE DESIGN)
+   Estas reglas solo aplican si la pantalla mide menos de 768px (celulares)
+   ========================================================================== */
+
 @media (max-width: 768px) {
+    
+    /* 1. Ajuste de Títulos y Textos para que no se vean gigantes */
+    h1, .hero h1, .page-hero h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 2rem !important; }
+    .hero .subtitulo { font-size: 1.1rem; padding: 0 1rem; }
+
+    /* 2. Ajuste del Logo (más pequeño en móvil) */
+    .navbar .logo img { height: 80px; }
+    .navbar .container { flex-direction: column; gap: 1rem; }
+    .navbar .nav-links { flex-wrap: wrap; justify-content: center; padding: 0; }
+    .navbar .nav-links li { margin: 0 10px; }
+
+    /* 3. APILAR CONTENIDO (Solución al problema de imágenes perdidas)
+       En vez de poner imagen al lado del texto, la pone abajo. */
+    
+    /* Grid de Servicios (Inicio) y Categorías (Blog) */
+    .servicios-grid, .categorias-grid, .plus-grid {
+        grid-template-columns: 1fr; /* 1 sola columna */
+    }
+
+    /* Items Flex (Páginas Internas) */
+    .servicio-item, 
+    .servicio-item.reverse, 
+    .historia-contenido, 
+    .contacto-layout,
+    .destacado-card {
+        flex-direction: column; /* Apilar verticalmente */
+        gap: 2rem;
+    }
+
+    /* 4. IMÁGENES RESPONSIVAS
+       Asegura que la imagen ocupe el 100% del ancho del celular */
+    .servicio-item-imagen, 
+    .historia-imagen, 
+    .equipo-imagen,
+    .destacado-imagen {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .destacado-texto { padding: 1.5rem; } /* Menos padding en tarjeta destacada */
+
+    /* 5. ARREGLAR BOTÓN WHATSAPP EN MÓVIL 
+       Lo hacemos un poco más pequeño y ajustamos la posición para que no se corte */
     .btn-whatsapp {
         width: 50px;
         height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 28px;
+        font-size: 28px; /* Icono más pequeño */
+        bottom: 20px;    /* Más pegado abajo */
+        right: 20px;     /* Más pegado a la derecha */
     }
+
+    /* Ajuste formulario contacto */
+    .formulario-contacto { width: 100%; }
+    .info-contacto { width: 100%; }
 }
