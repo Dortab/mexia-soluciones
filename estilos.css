@@ -787,3 +787,5 @@ img {
         min-width: 100% !important;
     }
 }
+/* ACTUALIZACION MOVIL FORZADA 2 */
+body { border-top: 0px solid transparent; }
