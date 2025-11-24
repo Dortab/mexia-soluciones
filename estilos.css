@@ -4,17 +4,17 @@
 /* --- VARIABLES GLOBALES DE COLOR (Opción D: Híbrido Confiable) --- */
 :root {
     /* Fondos */
-    --color-fondo-oscuro: #1A103C;        /* Índigo (para Header/Footer/Hero) */
-    --color-fondo-claro: #FFFFFF;         /* Blanco (para Contenido) */
-    --color-fondo-claro-alt: #F8F9FA;    /* Gris claro (para alternar) */
+    --color-fondo-oscuro: #1A103C;        /* Índigo */
+    --color-fondo-claro: #FFFFFF;         /* Blanco */
+    --color-fondo-claro-alt: #F8F9FA;    /* Gris claro */
 
     /* Textos */
-    --color-texto-oscuro: #212529;      /* Carbón (para párrafos en fondo claro) */
-    --color-texto-claro: #FFFFFF;         /* Blanco (para párrafos en fondo oscuro) */
+    --color-texto-oscuro: #212529;      
+    --color-texto-claro: #FFFFFF;         
 
     /* Acentos */
-    --acento-cta: #00C9A7;                /* Verde Esmeralda/Teal (Botones) */
-    --acento-titulos: #004AAD;             /* Azul Corporativo (Títulos) */
+    --acento-cta: #00C9A7;                /* Verde Esmeralda */
+    --acento-titulos: #004AAD;             /* Azul Corporativo */
 }
 
 /* --- RESETEO BÁSICO Y ESTILOS GLOBALES --- */
@@ -29,7 +29,7 @@ body {
     background-color: var(--color-fondo-claro);
     color: var(--color-texto-oscuro);
     line-height: 1.6;
-    overflow-x: hidden; /* Evita scroll horizontal indeseado en móvil */
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,14 +55,13 @@ a:hover {
     margin: 0 auto;
 }
 
-/* Asegura que las imágenes nunca se salgan de su contenedor */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* --- ESTILOS DE BOTONES (CTA) --- */
+/* --- BOTONES --- */
 .btn {
     padding: 12px 24px;
     border: none;
@@ -96,8 +95,7 @@ img {
     color: var(--color-texto-claro);
 }
 
-
-/* --- NAVEGACIÓN (FONDO OSCURO) --- */
+/* --- NAVEGACIÓN --- */
 .navbar {
     background-color: var(--color-fondo-oscuro);
     padding: 1.5rem 0;
@@ -132,85 +130,50 @@ img {
     color: var(--acento-cta); 
 }
 
-/* --- SECCIÓN HERO (INDEX) (FONDO OSCURO) --- */
-.hero {
+/* --- SECCIONES GENERALES --- */
+.hero, .page-hero {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
     padding: 6rem 0;
     text-align: center;
-    background-color: var(--color-fondo-oscuro);
-    color: var(--color-texto-claro); 
     position: relative;
     overflow: hidden; 
 }
-.hero h1 {
+.hero h1, .page-hero h1 {
     font-size: 3.5rem; 
     color: var(--color-texto-claro); 
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
-.hero .subtitulo {
+.subtitulo {
     font-size: 1.25rem;
     color: #E0E0E0; 
     max-width: 800px;
     margin: 0 auto 2rem;
 }
-.hero-buttons .btn {
-    margin: 0.5rem; 
-}
-.hero .btn-cta-secondary {
-    color: var(--acento-cta);
-    border-color: var(--acento-cta);
-}
-.hero .btn-cta-secondary:hover {
-    background-color: var(--acento-cta);
-    color: #000;
-}
 
-/* --- SERVICIOS RESUMEN (INDEX) (FONDO CLARO) --- */
-.servicios {
-    padding: 5rem 0;
-    text-align: center;
-    background-color: var(--color-fondo-claro);
-}
-.servicios-grid {
+/* --- GRIDS Y TARJETAS --- */
+.servicios-grid, .plus-grid, .categorias-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
     text-align: left;
 }
-.servicio-card {
+
+.servicio-card, .plus-card, .categoria-card {
     background-color: #FFFFFF;
     padding: 2.5rem 2rem;
     border-radius: 8px;
     border: 1px solid #E0E0E0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
-.servicio-card:hover {
+.servicio-card:hover, .plus-card:hover, .categoria-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-.enlace-servicio {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: 700;
-    color: var(--acento-cta); 
-}
-.enlace-servicio:hover {
-    color: var(--acento-titulos); 
 }
 
-/* --- NOSOTROS RESUMEN (INDEX) (FONDO CLARO ALTERNATIVO) --- */
-.nosotros {
-    padding: 5rem 0;
-    background-color: var(--color-fondo-claro-alt); 
-    text-align: center;
-}
-.nosotros .container {
-    max-width: 800px;
-}
-
-/* --- FOOTER (FONDO OSCURO) --- */
+/* --- FOOTER --- */
 .footer {
     background-color: var(--color-fondo-oscuro);
     color: var(--color-texto-claro);
@@ -228,22 +191,8 @@ img {
     gap: 2rem;
     margin-bottom: 3rem;
 }
-.footer-contacto h4, .footer-links h4 {
-    color: var(--color-texto-claro);
-    margin-bottom: 1rem;
-}
-.footer-links ul {
-    list-style: none;
-}
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-.footer-links a, .footer-contacto a {
-    color: #E0E0E0; 
-}
-.footer-links a:hover, .footer-contacto a:hover {
-    color: var(--acento-cta); 
-}
+.footer-links ul { list-style: none; }
+.footer-links a, .footer-contacto a { color: #E0E0E0; }
 .footer-bottom {
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -251,437 +200,39 @@ img {
     font-size: 0.9rem;
 }
 
-/* --- ESTILOS PARA ANIMACIÓN MATRIX (INDEX) --- */
+/* --- MATRIX ANIMATION --- */
 #matrix-canvas {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; 
-    opacity: 0.15; 
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; opacity: 0.15; 
 }
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
+.hero .container { position: relative; z-index: 2; }
 
-/* --- ESTILOS DE PÁGINAS INTERNAS --- */
-.page-hero {
-    background-color: var(--color-fondo-oscuro);
-    color: var(--color-texto-claro);
-    padding: 4rem 0;
-    text-align: center;
-}
-.page-hero h1 {
-    color: var(--color-texto-claro);
-    font-size: 3rem;
-}
-.page-hero .subtitulo {
-    font-size: 1.25rem;
-    color: #E0E0E0;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Estilos para la lista detallada de servicios */
-.servicios-detalle {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro);
-}
-.servicio-item {
+/* --- ITEMS DETALLADOS (Servicios, Historia) --- */
+.servicio-item, .historia-contenido, .contacto-layout {
     display: flex;
     align-items: center;
     gap: 4rem;
     margin-bottom: 6rem;
 }
-.servicio-item:last-child {
-    margin-bottom: 0;
-}
-.servicio-item.reverse {
-    flex-direction: row-reverse;
-}
-.servicio-item-texto {
-    flex: 1;
-}
-.servicio-item-texto h3 {
-    color: var(--acento-cta);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-.servicio-item-texto h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-.servicio-item-texto p {
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-.servicio-item-imagen {
-    flex: 1;
-}
-.servicio-item-imagen img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+.servicio-item.reverse { flex-direction: row-reverse; }
+.servicio-item-texto, .historia-texto, .formulario-contacto { flex: 1; }
+.servicio-item-imagen, .historia-imagen, .info-contacto { flex: 1; }
+.servicio-item-imagen img, .historia-imagen img { border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-/* Sección "El Plus" */
-.nuestro-plus {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro-alt);
-    text-align: center;
-}
-.nuestro-plus h2 {
-    margin-bottom: 4rem;
-}
-.plus-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-.plus-card {
-    background-color: #FFFFFF;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.plus-card svg {
-    width: 50px;
-    height: 50px;
-    color: var(--acento-titulos);
-    margin-bottom: 1.5rem;
-}
-.plus-card h3 {
-    color: var(--acento-titulos);
-    margin-bottom: 1rem;
-}
+/* --- FORMULARIOS --- */
+.info-contacto { background-color: var(--color-fondo-claro-alt); padding: 2.5rem; border-radius: 8px; }
+.info-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+.info-item svg { width: 30px; color: var(--acento-titulos); }
 
-/* Sección CTA Final */
-.cta-final {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro);
-    text-align: center;
+.form-grupo { margin-bottom: 1.5rem; }
+.form-grupo label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.form-grupo input, .form-grupo select, .form-grupo textarea {
+    width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 5px;
 }
-.cta-final .container {
-    max-width: 700px;
-}
-.cta-final h2 {
-    font-size: 2.5rem;
-}
-.cta-final p {
-    font-size: 1.15rem;
-    margin-bottom: 2rem;
-}
-.cta-final .btn-cta-primary {
-    font-size: 1.1rem;
-    padding: 15px 30px;
-}
+.formulario-contacto .btn-cta-primary { width: 100%; }
 
-/* --- ESTILOS PÁGINA "NOSOTROS" --- */
-.nuestra-historia {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro);
-}
-.historia-contenido {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
-.historia-texto {
-    flex: 1;
-}
-.historia-texto h2 {
-    font-size: 2.5rem;
-}
-.historia-texto p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-.historia-imagen {
-    flex: 1;
-}
-.historia-imagen img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Sección del Equipo */
-.nuestro-equipo {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro-alt);
-    text-align: center;
-}
-.nuestro-equipo h2 {
-    font-size: 3rem; 
-    margin-bottom: 2rem;
-    color: var(--acento-titulos);
-}
-.equipo-descripcion {
-    max-width: 800px; 
-    margin: 0 auto 3rem; 
-    text-align: center;
-}
-.equipo-descripcion p {
-    font-size: 1.15rem; 
-    line-height: 1.7; 
-    margin-bottom: 1.5rem; 
-}
-.equipo-imagen {
-    max-width: 900px; 
-    margin: 0 auto; 
-    padding: 0 1rem;
-}
-.equipo-imagen img {
-    width: 100%; 
-    border-radius: 8px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-}
-
-/* --- ESTILOS PÁGINA "BLOG" --- */
-.articulo-destacado {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro);
-}
-.destacado-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
-    background: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-}
-.destacado-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-}
-.destacado-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.destacado-texto {
-    padding: 3rem;
-}
-.destacado-tag {
-    display: inline-block;
-    background-color: var(--acento-cta);
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-.destacado-texto h2 {
-    font-size: 2rem;
-}
-.destacado-texto p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-
-.explora-categorias {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro-alt);
-    text-align: center;
-}
-.explora-categorias h2 {
-    font-size: 3rem;
-    margin-bottom: 4rem;
-}
-.categorias-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-.categoria-card {
-    background-color: #FFFFFF;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.categoria-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-.categoria-card h3 {
-    margin-bottom: 1rem;
-}
-
-/* --- ESTILOS PÁGINA "ARTÍCULO" --- */
-.articulo-contenido {
-    padding: 6rem 0;
-}
-.articulo-contenido .container {
-    max-width: 800px; 
-}
-.articulo-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-.articulo-categoria {
-    display: inline-block;
-    background-color: var(--acento-cta); 
-    color: #000; 
-    padding: 8px 16px; 
-    border-radius: 20px;
-    font-size: 1rem; 
-    font-weight: 600;
-    margin-bottom: 1.5rem; 
-}
-.articulo-header h1 {
-    font-size: 3rem;
-    color: var(--color-texto-oscuro); 
-}
-.articulo-meta {
-    font-size: 0.9rem;
-    color: #6c757d;
-}
-.articulo-imagen-principal {
-    margin-bottom: 3rem;
-}
-.articulo-imagen-principal img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-.articulo-cuerpo {
-    font-size: 1.15rem;
-    line-height: 1.7;
-}
-.articulo-cuerpo p {
-    margin-bottom: 1.5rem;
-}
-.articulo-cuerpo h2 {
-    font-size: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-}
-.articulo-cuerpo ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-.articulo-cuerpo li {
-    margin-bottom: 0.5rem;
-}
-.articulo-cuerpo hr {
-    border: none;
-    height: 1px;
-    background-color: #E0E0E0;
-    margin: 3rem 0;
-}
-.takeaways {
-    background-color: var(--color-fondo-claro-alt);
-    border: 1px solid #E0E0E0;
-    border-left: 5px solid var(--acento-titulos);
-    border-radius: 5px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-.takeaways h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-.articulo-cta {
-    background-color: var(--color-fondo-oscuro);
-    color: var(--color-texto-claro);
-    border-radius: 8px;
-    padding: 3rem;
-    text-align: center;
-}
-.articulo-cta h3 {
-    color: var(--color-texto-claro);
-    font-size: 1.8rem;
-}
-.articulo-cta p {
-    color: #E0E0E0;
-    margin-bottom: 2rem;
-}
-
-/* --- ESTILOS PÁGINA "CONTACTO" --- */
-.contacto-pagina {
-    padding: 6rem 0;
-    background-color: var(--color-fondo-claro);
-}
-.contacto-layout {
-    display: flex;
-    gap: 4rem;
-}
-.formulario-contacto {
-    flex: 2; 
-}
-.formulario-contacto h2 {
-    font-size: 2.5rem;
-}
-.formulario-contacto p {
-    margin-bottom: 2rem;
-}
-.info-contacto {
-    flex: 1; 
-    background-color: var(--color-fondo-claro-alt);
-    padding: 2.5rem;
-    border-radius: 8px;
-}
-.info-contacto h2 {
-    font-size: 2.5rem;
-}
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-.info-item svg {
-    width: 30px;
-    height: 30px;
-    color: var(--acento-titulos);
-    margin-top: 5px;
-}
-.info-item h3 {
-    margin-bottom: 0.25rem;
-}
-.info-item p {
-    font-size: 1.1rem;
-}
-.form-grupo {
-    margin-bottom: 1.5rem;
-}
-.form-grupo label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--color-texto-oscuro);
-}
-.form-grupo input,
-.form-grupo select,
-.form-grupo textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    background-color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-}
-.form-grupo input:focus,
-.form-grupo select:focus,
-.form-grupo textarea:focus {
-    outline: none;
-    border-color: var(--acento-titulos);
-    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
-}
-.formulario-contacto .btn-cta-primary {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1rem;
-}
-
-/* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+/* --- WHATSAPP FLOTANTE --- */
 .btn-whatsapp {
     position: fixed;
     bottom: 30px;
@@ -699,93 +250,29 @@ img {
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-    text-decoration: none; 
 }
-
-.btn-whatsapp:hover {
-    transform: scale(1.1); 
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    background-color: #20ba5a; 
-    color: #FFF; 
-}
-
+.btn-whatsapp:hover { transform: scale(1.1); background-color: #20ba5a; color: #FFF; }
 
 /* ==========================================================================
-   VERSIÓN MÓVIL (FUERZA BRUTA)
+   VERSIÓN MÓVIL (FUERZA BRUTA REFORZADA)
    ========================================================================== */
-
 @media screen and (max-width: 768px) {
-    
-    /* 1. CONTENEDOR PRINCIPAL */
-    .container {
-        width: 90% !important;
-        padding: 0 !important;
-        overflow-x: hidden !important; /* Evita scroll horizontal */
-    }
-
-    /* 2. TEXTOS */
+    .container { width: 90% !important; padding: 0 !important; overflow-x: hidden !important; }
     h1, .hero h1, .page-hero h1 { font-size: 2.2rem !important; line-height: 1.2 !important; }
     h2 { font-size: 1.8rem !important; }
-    p { font-size: 1rem !important; }
-
-    /* 3. MENÚ DE NAVEGACIÓN */
-    .navbar .logo img { height: 60px !important; } /* Logo más chico */
+    
+    .navbar .logo img { height: 60px !important; } 
     .navbar .container { flex-direction: column !important; align-items: center !important; }
-    .navbar .nav-links { 
-        flex-wrap: wrap !important; 
-        justify-content: center !important; 
-        padding: 10px 0 !important;
-        width: 100% !important;
-    }
+    .navbar .nav-links { flex-wrap: wrap !important; justify-content: center !important; width: 100% !important; padding: 10px 0 !important; }
     .navbar .nav-links li { margin: 5px 10px !important; }
 
-    /* 4. APILAR TODO (Solución de imágenes) */
-    /* Obligamos a todo lo que sea Grid o Flex a ponerse en columna */
-    .servicios-grid, 
-    .categorias-grid, 
-    .plus-grid,
-    .servicio-item, 
-    .servicio-item.reverse, 
-    .historia-contenido, 
-    .contacto-layout,
-    .destacado-card {
-        display: flex !important;
-        flex-direction: column !important;
-        grid-template-columns: 1fr !important; /* Mata el grid de 2 columnas */
-        gap: 2rem !important;
-        width: 100% !important;
-    }
-
-    /* 5. IMÁGENES CONTROLADAS */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: cover !important; /* Evita que se estiren feo */
+    /* Apilar todo */
+    .servicio-item, .servicio-item.reverse, .historia-contenido, .contacto-layout, .destacado-card {
+        display: flex !important; flex-direction: column !important; gap: 2rem !important;
     }
     
-    .servicio-item-imagen, 
-    .historia-imagen, 
-    .equipo-imagen,
-    .destacado-imagen {
-        width: 100% !important;
-        margin: 0 auto !important;
-    }
-
-    /* 6. WHATSAPP FLOTANTE (Visible y Seguro) */
     .btn-whatsapp {
-        width: 50px !important;
-        height: 50px !important;
-        font-size: 28px !important;
-        bottom: 15px !important;    /* Pegado abajo */
-        right: 15px !important;     /* Pegado derecha */
-        z-index: 99999 !important;  /* Encima de todo */
-    }
-
-    /* 7. FORMULARIOS */
-    .formulario-contacto, .info-contacto {
-        width: 100% !important;
-        min-width: 100% !important;
+        width: 50px !important; height: 50px !important; font-size: 28px !important;
+        bottom: 15px !important; right: 15px !important;
     }
 }
-/* ACTUALIZACION MOVIL FORZADA 2 */
-body { border-top: 0px solid transparent; }
