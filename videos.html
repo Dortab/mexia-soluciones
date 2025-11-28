@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEXIA Soluciones - Acceso Restringido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="index.html">
+                <img src="image/Logotipo.jpg" alt="MEXIA Soluciones Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="videos.html" class="current">Videos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <a href="contacto.html" class="btn btn-cta">Solicitar Asesoría</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <div class="logo-adicional-container">
+                <img src="image/logo-especial.png" alt="Logo Especial MEXIA" class="logo-secundario">
+            </div>
+            <h1>Contenido Multimedia</h1>
+            <p class="subtitulo">Descubre nuestros videos institucionales diseñados con IA.</p>
+        </div>
+    </header>
+
+    <main class="video-section">
+        <div class="container">
+            
+            <div id="zona-candado" class="video-card candado-card">
+                <div class="candado-header">
+                    <span style="font-size: 50px;">🔒</span>
+                    <h2>Área Privada</h2>
+                    <p>Este contenido es exclusivo para clientes o invitados.</p>
+                </div>
+                <div class="form-grupo" style="max-width: 400px; margin: 0 auto;">
+                    <label for="passwordInput">Ingresa la contraseña:</label>
+                    <input type="password" id="passwordInput" placeholder="Contraseña de acceso">
+                    <p id="errorMsg" style="color: red; display: none; margin-top: 10px;">Contraseña incorrecta. Intenta de nuevo.</p>
+                </div>
+                <button id="btnDesbloquear" class="btn btn-cta-primary" style="margin-top: 20px;">Acceder al Video</button>
+            </div>
+
+            <div id="zona-video" class="video-card" style="display: none;">
+                <div class="video-header">
+                    <h2>Presentación Corporativa</h2>
+                    <p>Conoce más sobre nuestra visión y metodología de trabajo.</p>
+                </div>
+
+                <div class="video-wrapper">
+                    <video id="myVideo" poster="image/poster-video.jpg">
+                        <source src="mi_video.mp4" type="video/mp4">
+                        Tu navegador no soporta la etiqueta de video.
+                    </video>
+                </div>
+
+                <div class="video-controls">
+                    <button id="playPauseBtn" class="btn btn-cta-primary">▶️ Reproducir</button>
+                    <a href="mi_video.mp4" download="Video-MEXIA.mp4" class="btn btn-cta-secondary">⬇️ Descargar Video</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-contenido">
+                <img src="image/Logotipo.jpg" alt="MEXIA Logo Footer" class="footer-logo">
+                <div class="footer-contacto">
+                    <h4>Empecemos tu proyecto</h4>
+                    <p>Email: <a href="mailto:contacto@mexia.digital">contacto@mexia.digital</a></p>
+                    <p>Tel: <a href="tel:5536573125">55 3657 3125</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025 MEXIA Soluciones | <a href="https://mexia.digital">mexia.digital</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/525536573125?text=Hola%20MEXIA%2C%20quisiera%20la%20contrase%C3%B1a%20para%20ver%20el%20video%20institucional." class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
