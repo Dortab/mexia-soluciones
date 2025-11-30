@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. SMOOTH SCROLL (Desplazamiento suave para enlaces ancla)
+    // 1. SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 2. MATRIX ANIMATION (Solo funciona si existe el canvas en la página)
+    // 2. MATRIX ANIMATION
     const canvas = document.getElementById('matrix-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(draw, 50); 
     }
 
-    // 3. SISTEMA DE CONTRASEÑA (Solo para videos.html)
+    // 3. SISTEMA DE CONTRASEÑA
     const btnDesbloquear = document.getElementById('btnDesbloquear');
     if (btnDesbloquear) {
         const inputPass = document.getElementById('passwordInput');
@@ -46,57 +46,57 @@ document.addEventListener('DOMContentLoaded', function() {
         const zonaVideo = document.getElementById('zona-video');
         const errorMsg = document.getElementById('errorMsg');
 
-        // --- CONTRASEÑA DEFINIDA ---
+        // CLAVE DE ACCESO
         const PASSWORD_CORRECTO = "MEXIA2025";
 
         function verificarPassword() {
             if (inputPass.value === PASSWORD_CORRECTO) {
-                // Correcto: Ocultamos candado, mostramos video
                 zonaCandado.style.display = 'none';
-                zonaVideo.style.display = 'block';
-                // Iniciamos el video automáticamente
-                const video = document.getElementById('myVideo');
-                if(video) video.play();
+                zonaVideo.style.display = 'block'; 
             } else {
-                // Incorrecto
                 errorMsg.style.display = 'block';
-                inputPass.classList.add('shake'); // Agrega vibración
-                setTimeout(() => inputPass.classList.remove('shake'), 500); // Quita vibración
+                inputPass.classList.add('shake');
+                setTimeout(() => inputPass.classList.remove('shake'), 500);
             }
         }
 
-        // Clic en el botón
         btnDesbloquear.addEventListener('click', verificarPassword);
-
-        // Permitir dar Enter en el input
         inputPass.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                verificarPassword();
-            }
+            if (e.key === 'Enter') { verificarPassword(); }
         });
     }
 
-    // 4. REPRODUCTOR DE VIDEO (Lógica Play/Pause)
-    const video = document.getElementById('myVideo');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    
-    // Solo ejecutamos si existen los elementos (para no dar error en otras páginas)
-    if (video && playPauseBtn) {
-        function togglePlayPause() {
-            if (video.paused || video.ended) {
-                video.play();
-                playPauseBtn.textContent = '⏸️ Pausar';
-            } else {
-                video.pause();
-                playPauseBtn.textContent = '▶️ Reproducir';
+    // 4. CONTROLADOR DE GALERÍA DE VIDEOS
+    function setupVideoPlayer(videoId, btnId) {
+        const video = document.getElementById(videoId);
+        const btn = document.getElementById(btnId);
+
+        if (video && btn) {
+            function togglePlay() {
+                if (video.paused || video.ended) {
+                    // Pausar cualquier otro video que se esté reproduciendo
+                    document.querySelectorAll('video').forEach(v => {
+                        if (v !== video) v.pause();
+                    });
+                    
+                    video.play();
+                    btn.textContent = '⏸️ Pausar';
+                } else {
+                    video.pause();
+                    btn.textContent = '▶️ Reproducir';
+                }
             }
+            btn.addEventListener('click', togglePlay);
+            
+            video.addEventListener('play', () => btn.textContent = '⏸️ Pausar');
+            video.addEventListener('pause', () => btn.textContent = '▶️ Reproducir');
+            video.addEventListener('ended', () => btn.textContent = '▶️ Reproducir');
         }
-        
-        playPauseBtn.addEventListener('click', togglePlayPause);
-        
-        // Eventos nativos del video
-        video.addEventListener('play', () => playPauseBtn.textContent = '⏸️ Pausar');
-        video.addEventListener('pause', () => playPauseBtn.textContent = '▶️ Reproducir');
-        video.addEventListener('ended', () => playPauseBtn.textContent = '▶️ Reproducir');
     }
+
+    // --- CONFIGURACIÓN DE LOS 4 VIDEOS ---
+    setupVideoPlayer('video_inst', 'btn_inst');
+    setupVideoPlayer('video_p1', 'btn_p1');
+    setupVideoPlayer('video_p2', 'btn_p2');
+    setupVideoPlayer('video_p3', 'btn_p3'); // Nuevo video
 });
