@@ -1,18 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Smooth Scroll
+    // 1. SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
+            if(targetElement) { targetElement.scrollIntoView({ behavior: 'smooth' }); }
         });
     });
 
-    // Matrix Animation
+    // 2. MATRIX ANIMATION
     const canvas = document.getElementById('matrix-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#00C9A7'; 
             ctx.font = fontSize + 'px arial';
-
             for (let i = 0; i < drops.length; i++) {
                 const text = charArray[Math.floor(Math.random() * charArray.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
