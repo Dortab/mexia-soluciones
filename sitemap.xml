@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://mexia.digital/index.html</loc>
+      <lastmod>2025-10-25</lastmod>
+      <priority>1.00</priority>
+   </url>
+   <url>
+      <loc>https://mexia.digital/servicios.html</loc>
+      <lastmod>2025-10-25</lastmod>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://mexia.digital/blog.html</loc>
+      <lastmod>2025-10-25</lastmod>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://mexia.digital/articulo-3-mitos.html</loc>
+      <lastmod>2025-10-15</lastmod>
+      <priority>0.60</priority>
+   </url>
+   <url>
+      <loc>https://mexia.digital/articulo-digitalizacion-web.html</loc>
+      <lastmod>2025-10-20</lastmod>
+      <priority>0.60</priority>
+   </url>
+   <url>
+      <loc>https://mexia.digital/articulo-automatizacion-costos.html</loc>
+      <lastmod>2025-10-25</lastmod>
+      <priority>0.60</priority>
+   </url>
+</urlset>
