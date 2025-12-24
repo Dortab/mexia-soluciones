@@ -25,116 +25,81 @@
         </div>
     </nav>
 
-    <header class="page-hero">
+    <header class="page-hero-internal">
         <div class="container">
             <h1>Hablemos de tu Proyecto</h1>
-            <p class="subtitulo">Llena el formulario o contáctanos directamente. Estamos listos para escucharte.</p>
+            <p class="subtitulo">Estamos listos para escuchar tus ideas</p>
         </div>
     </header>
 
-    <main class="contacto-pagina">
-        <div class="container">
-            <div class="contacto-layout">
-                
-                <div class="formulario-contacto">
-                    <h2>Envíanos un mensaje</h2>
-                    <p>Uno de nuestros expertos te responderá en menos de 24 horas.</p>
-
-                    <form action="https://formspree.io/f/mrbrpawk" method="POST">
-                        <div class="form-grupo">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-grupo">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" placeholder="ejemplo@empresa.com" required>
-                        </div>
-                        <div class="form-grupo">
-                            <label for="telefono">Teléfono de Contacto (10 dígitos)</label>
-                            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" title="Por favor ingresa un número de 10 dígitos sin espacios ni guiones" placeholder="5512345678" required>
-                        </div>
-                        <div class="form-grupo">
-                            <label for="servicio">¿En qué servicio estás interesado?</label>
-                            <select id="servicio" name="servicio">
-                                <option value="No estoy seguro">No estoy seguro</option>
-                                <option value="Desarrollo Web">Desarrollo Web</option>
-                                <option value="Marketing Digital">Marketing Digital</option>
-                                <option value="Branding (Logotipos)">Branding (Logotipos)</option>
-                                <option value="Desarrollo de Apps">Desarrollo de Apps</option>
-                            </select>
-                        </div>
-                        <div class="form-grupo">
-                            <label for="mensaje">Cuéntanos sobre tu proyecto</label>
-                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
-                        </div>
-                        <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto desde mexia.digital">
-                        <button type="submit" class="btn btn-cta-primary">Enviar Mensaje</button>
-                    </form>
+    <section class="container" style="padding: 3rem 0; max-width: 600px;">
+        <div style="background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            
+            <form action="#" method="POST"> 
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="nombre" style="display: block; margin-bottom: 5px; font-weight: 600;">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required 
+                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
                 </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="telefono" style="display: block; margin-bottom: 5px; font-weight: 600;">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required 
+                           placeholder="Ej: 5512345678"
+                           pattern="[0-9]+"
+                           title="Por favor ingresa solo números"
+                           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <small style="color: #666; font-size: 0.8rem;">Solo se aceptan números.</small>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="email" style="display: block; margin-bottom: 5px; font-weight: 600;">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="nombre@empresa.com"
+                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="mensaje" style="display: block; margin-bottom: 5px; font-weight: 600;">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required
+                              style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-cta" style="width: 100%;">Enviar Mensaje</button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 2.5rem; border-top: 1px solid #eee; padding-top: 2rem;">
+                <p style="margin-bottom: 1rem; color: #666;">O contáctanos directo:</p>
                 
-                <div class="info-contacto">
-                    <h2>Información Directa</h2>
-                    <p>¿Prefieres otro método? Aquí nos encuentras.</p>
-
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.558Z"/></svg>
-                        <div>
-                            <h3>Email</h3>
-                            <p>contacto@mexia.digital</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                <div style="margin-bottom: 1rem;">
+                    <a href="https://wa.me/525536573125" target="_blank" style="color: var(--acento-cta); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
                         </svg>
-                        <div>
-                            <h3>WhatsApp</h3>
-                            <p><a href="https://wa.me/525536573125?text=Hola%20MEXIA%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20para%20llevar%20mi%20negocio%20a%20la%20era%20digital." style="color: var(--color-texto-oscuro);">55 3657 3125</a></p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.031.007-2.137.702-2.877L1.885.511z"/></svg>
-                        <div>
-                            <h3>Teléfono</h3>
-                            <p><a href="tel:5536573125" style="color: var(--color-texto-oscuro);">55 3657 3125</a></p>
-                        </div>
-                    </div>
+                        +52 55 3657 3125
+                    </a>
                 </div>
+
+                <div>
+                    <a href="mailto:contacto@mexia.digital" style="color: var(--color-texto-oscuro); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                        contacto@mexia.digital
+                    </a>
+                </div>
+
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer class="footer">
+    <footer style="background-color: var(--color-fondo-oscuro); color: white; padding: 3rem 0; text-align: center;">
         <div class="container">
-            <div class="footer-contenido">
-                <img src="image/Logotipo.jpg" alt="MEXIA Logo Footer" class="footer-logo">
-                <div class="footer-contacto">
-                    <h4>Empecemos tu proyecto</h4>
-                    <p>Email: <a href="mailto:contacto@mexia.digital">contacto@mexia.digital</a></p>
-                    <p>Tel: <a href="tel:5536573125">55 3657 3125</a></p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2025 MEXIA Soluciones | <a href="https://mexia.digital">mexia.digital</a></p>
-            </div>
+            <p>&copy; 2024 MEXIA Soluciones.</p>
         </div>
     </footer>
-
-    <a href="https://wa.me/525536573125?text=Hola%20MEXIA%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20para%20llevar%20mi%20negocio%20a%20la%20era%20digital." class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
+    
+    <script src="script.js"></script>
 </body>
 </html>
