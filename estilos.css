@@ -295,3 +295,56 @@ body:has(.hero) .navbar {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Estilos para el botón hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto en desktop */
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-texto-claro);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Responsive: Ajustes para celular */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Aparece en móvil */
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Escondido a la izquierda */
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--color-fondo-oscuro);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        left: 0; /* Se desliza hacia adentro */
+    }
+
+    .nav-links li {
+        margin: 2.5rem 0;
+    }
+
+    /* Ocultar el botón CTA de la nav en móvil para dar espacio, 
+       o moverlo dentro del menú */
+    .navbar .btn-cta {
+        display: none; 
+    }
+}

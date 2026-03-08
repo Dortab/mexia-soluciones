@@ -73,3 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Lógica para el Menú Móvil
+const menuToggle = document.getElementById('mobile-menu');
+const navMenu = document.getElementById('nav-menu');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        // Opcional: Animación del botón hamburguesa
+        menuToggle.classList.toggle('is-active');
+    });
+}
+
+// Cerrar el menú automáticamente al hacer clic en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
