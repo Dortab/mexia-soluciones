@@ -1,4 +1,7 @@
-/* --- 1. VARIABLES Y RESET --- */
+/* --- 1. IMPORTAR FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap');
+
+/* --- 2. VARIABLES GLOBALES --- */
 :root {
     --color-fondo-oscuro: #1A103C;        
     --color-fondo-claro: #FFFFFF;         
@@ -8,6 +11,7 @@
     --acento-titulos: #004AAD;             
 }
 
+/* --- 3. RESETEO BÁSICO --- */
 * { 
     margin: 0; 
     padding: 0; 
@@ -22,97 +26,77 @@ body {
     overflow-x: hidden;
 }
 
-/* --- 2. NAVBAR (ESTRUCTURA CORREGIDA) --- */
-.navbar {
-    background-color: var(--color-fondo-oscuro);
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 0; /* Espaciado vertical para que el logo respire */
-    display: flex;
-    align-items: center;
-    min-height: 100px; /* Asegura que la barra sea alta */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--acento-titulos);
+    font-weight: 700;
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+a { text-decoration: none; transition: all 0.3s ease; }
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
     width: 90%;
 }
 
-/* --- 3. LOGOTIPO (CAMBIO RADICAL) --- */
-.logo {
+/* --- 4. NAVBAR (ESTRUCTURA Y LOGO) --- */
+.navbar {
+    background-color: var(--color-fondo-oscuro);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 90px;
     display: flex;
     align-items: center;
-    text-decoration: none;
 }
 
-.logo img { 
-    /* Hemos subido a 90px. Si la imagen tiene bordes blancos internos, 
-       esta medida compensará ese espacio vacío */
-    height: 90px !important; 
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* CORRECCIÓN LOGO: Forzado para que se vea grande en PC */
+.navbar .logo img { 
+    height: 80px !important; 
     width: auto !important;
     display: block;
     transition: transform 0.3s ease;
-    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.2));
 }
 
-.logo img:hover {
+.navbar .logo img:hover {
     transform: scale(1.05);
 }
 
-/* --- 4. NAVEGACIÓN Y MENÚ MÓVIL --- */
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
 }
 
-.nav-links li { 
-    margin-left: 25px; 
-}
+.nav-links li { margin-left: 2rem; }
 
 .nav-links a {
     color: var(--color-texto-claro);
-    font-size: 1rem;
     font-weight: 500;
-    text-decoration: none;
 }
 
 .nav-links a:hover, .nav-links a.current {
     color: var(--acento-cta);
 }
 
-/* Botón Hamburguesa */
-.menu-toggle {
-    display: none; /* Oculto en PC */
-    flex-direction: column;
-    cursor: pointer;
-    background: none;
-    border: none;
-    z-index: 1100;
-}
-
-.menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: var(--color-texto-claro);
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-/* --- 5. BOTONES --- */
+/* --- 5. BOTONES Y CLASES DE VISIBILIDAD --- */
 .btn {
     display: inline-block;
     padding: 10px 25px;
     border-radius: 50px;
     font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+    text-align: center;
 }
 
 .btn-cta {
@@ -120,57 +104,37 @@ body {
     color: white;
 }
 
-/* --- 6. RESPONSIVE (MÓVIL) --- */
-@media screen and (max-width: 768px) {
-    .navbar {
-        min-height: 80px;
-        padding: 10px 0;
-    }
+.desktop-only { display: inline-block; }
+.mobile-only { display: none; }
 
-    .logo img {
-        height: 65px !important; /* Logo notablemente más grande en móvil también */
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none; /* Se activa con la clase .active vía JS */
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-fondo-oscuro);
-        padding: 40px 0;
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-        margin-left: 0;
-    }
-
-    /* Animación X de la hamburguesa */
-    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(13px) rotate(45deg); }
-    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-13px) rotate(-45deg); }
+/* --- 6. MENÚ HAMBURGUESA --- */
+.menu-toggle {
+    display: none; /* Oculto en PC */
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
 }
 
-/* --- 7. OTROS ELEMENTOS (HERO, MATRIX, WHATSAPP) --- */
+.menu-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* --- 7. HERO Y MATRIX --- */
 .hero {
     position: relative;
-    height: 80vh;
+    height: 85vh;
     background-color: var(--color-fondo-oscuro);
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    text-align: center;
     overflow: hidden;
 }
 
@@ -178,20 +142,72 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- 8. RESPONSIVE (MÓVIL) --- */
+@media screen and (max-width: 768px) {
+    .navbar {
+        min-height: 80px;
+    }
+
+    .navbar .logo img { 
+        height: 55px !important; /* Ajuste para que quepa bien en celular */
+    }
+
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: var(--color-fondo-oscuro);
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        display: flex; /* Se activa con el script.js */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        margin-left: 0;
+    }
+
+    /* Animación X */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+}
+
+/* --- 9. WHATSAPP Y FOOTER --- */
 .btn-whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 2000;
+    position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
+    background-color: #25d366; color: white; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999;
+}
+
+.footer {
+    background-color: var(--color-fondo-oscuro);
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 50px;
 }

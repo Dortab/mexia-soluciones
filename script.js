@@ -1,35 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- 1. MENÚ MÓVIL (Corrección solicitada) ---
+    // --- 1. LÓGICA DEL MENÚ MÓVIL (HAMBURGUESA) ---
     const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinksItems = document.querySelectorAll('.nav-links a');
+    const navList = document.getElementById('nav-list');
 
-    if (mobileMenu && navLinks) {
-        // Alternar menú al hacer clic en la hamburguesa
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('is-active'); // Para animación de la X si la agregaste
+    if (mobileMenu && navList) {
+        mobileMenu.addEventListener('click', function() {
+            // Alterna la clase 'active' para mostrar/ocultar el menú
+            navList.classList.toggle('active');
+            // Alterna la clase 'is-active' para la animación de la hamburguesa a X
+            mobileMenu.classList.toggle('is-active');
         });
 
-        // Cerrar el menú al hacer clic en cualquier enlace (importante en móviles)
-        navLinksItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        // Cerrar el menú automáticamente al hacer clic en cualquier enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
                 mobileMenu.classList.remove('is-active');
             });
         });
-
-        // Cerrar menú si se hace clic fuera de la navegación
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                mobileMenu.classList.remove('is-active');
-            }
-        });
     }
 
-    // --- 2. SMOOTH SCROLL (Navegación suave) ---
+    // --- 2. SMOOTH SCROLL (Navegación suave para anclas #) ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -43,19 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 3. MATRIX ANIMATION (Optimizada y Responsiva) ---
+    // --- 3. MATRIX ANIMATION (Efecto de fondo en el Hero) ---
     const canvas = document.getElementById('matrix-canvas');
     
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let width, height, columns, drops;
         
-        // Configuración de caracteres Matrix
         const chars = "MEXIA011010IAWEB"; 
         const charArray = chars.split('');
         const fontSize = 16;
 
         function initMatrix() {
+            // Ajustar el canvas al tamaño del contenedor padre (Hero)
             width = canvas.parentElement.offsetWidth;
             height = canvas.parentElement.offsetHeight;
             
@@ -66,14 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
             drops = [];
             
             for (let x = 0; x < columns; x++) {
-                drops[x] = Math.random() * height; 
+                drops[x] = Math.random() * (height / fontSize); 
             }
         }
 
         function draw() {
+            // Estela de rastro: color oscuro con opacidad baja
             ctx.fillStyle = 'rgba(26, 16, 60, 0.1)'; 
             ctx.fillRect(0, 0, width, height);
             
+            // Color de los caracteres (Verde MEXIA)
             ctx.fillStyle = '#00C9A7'; 
             ctx.font = fontSize + 'px monospace';
             
@@ -81,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const text = charArray[Math.floor(Math.random() * charArray.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
                 
+                // Reinicio aleatorio de la gota al llegar al final
                 if (drops[i] * fontSize > height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
@@ -88,8 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        // Inicializar y ajustar si se cambia el tamaño de la ventana
         initMatrix();
-        window.addEventListener('resize', initMatrix); // Ajustar si cambia el tamaño de pantalla
+        window.addEventListener('resize', initMatrix);
+
+        // Ejecutar animación (20 cuadros por segundo aprox.)
         setInterval(draw, 50); 
     }
 });
