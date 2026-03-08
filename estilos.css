@@ -1,10 +1,11 @@
 /* --- 1. IMPORTAR FUENTES --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap');
 
-/* --- 2. VARIABLES GLOBALES --- */
+/* --- 2. VARIABLES GLOBALES (Colores MEXIA Originales) --- */
 :root {
     --color-fondo-oscuro: #1A103C;        
     --color-fondo-claro: #FFFFFF;         
+    --color-fondo-claro-alt: #F8F9FA;    
     --color-texto-oscuro: #212529;      
     --color-texto-claro: #FFFFFF;         
     --acento-cta: #00C9A7;                
@@ -29,10 +30,10 @@ body {
 h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
     color: var(--acento-titulos);
-    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-a { text-decoration: none; transition: all 0.3s ease; }
+a { text-decoration: none; transition: 0.3s ease; }
 
 .container {
     max-width: 1200px;
@@ -40,35 +41,25 @@ a { text-decoration: none; transition: all 0.3s ease; }
     width: 90%;
 }
 
-/* --- 4. NAVBAR (ESTRUCTURA Y LOGO) --- */
+/* --- 4. NAVBAR PROFESIONAL (Logo Original 50px) --- */
 .navbar {
     background-color: var(--color-fondo-oscuro);
     padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    min-height: 90px;
-    display: flex;
-    align-items: center;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
-/* CORRECCIÓN LOGO: Forzado para que se vea grande en PC */
-.navbar .logo img { 
-    height: 80px !important; 
-    width: auto !important;
+.logo img { 
+    height: 50px; /* Tamaño original elegante */
+    width: auto;
     display: block;
-    transition: transform 0.3s ease;
-}
-
-.navbar .logo img:hover {
-    transform: scale(1.05);
 }
 
 .nav-links {
@@ -77,26 +68,27 @@ a { text-decoration: none; transition: all 0.3s ease; }
     align-items: center;
 }
 
-.nav-links li { margin-left: 2rem; }
+.nav-links li { margin-left: 1.5rem; }
 
 .nav-links a {
     color: var(--color-texto-claro);
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover, .nav-links a.current {
     color: var(--acento-cta);
 }
 
-/* --- 5. BOTONES Y CLASES DE VISIBILIDAD --- */
+/* --- 5. BOTONES REFINADOS --- */
 .btn {
     display: inline-block;
-    padding: 10px 25px;
-    border-radius: 50px;
+    padding: 10px 22px;
+    border-radius: 5px; /* Bordes más rectos para seriedad */
     font-weight: 700;
+    font-size: 0.9rem;
     cursor: pointer;
     border: none;
-    text-align: center;
 }
 
 .btn-cta {
@@ -104,22 +96,26 @@ a { text-decoration: none; transition: all 0.3s ease; }
     color: white;
 }
 
+.btn-cta:hover {
+    background-color: #00b395;
+}
+
+/* Clases de control para duplicidad */
 .desktop-only { display: inline-block; }
 .mobile-only { display: none; }
 
-/* --- 6. MENÚ HAMBURGUESA --- */
+/* --- 6. MENÚ HAMBURGUESA (Sutil) --- */
 .menu-toggle {
-    display: none; /* Oculto en PC */
+    display: none;
     flex-direction: column;
     cursor: pointer;
     background: none;
     border: none;
-    padding: 5px;
 }
 
 .menu-toggle .bar {
-    width: 28px;
-    height: 3px;
+    width: 25px;
+    height: 2px;
     background-color: white;
     margin: 4px 0;
     transition: 0.4s;
@@ -128,23 +124,20 @@ a { text-decoration: none; transition: all 0.3s ease; }
 /* --- 7. HERO Y MATRIX --- */
 .hero {
     position: relative;
-    height: 85vh;
+    height: 70vh;
     background-color: var(--color-fondo-oscuro);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
-    overflow: hidden;
 }
 
 #matrix-canvas {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.25;
+    opacity: 0.2;
 }
 
 .hero-content {
@@ -152,62 +145,43 @@ a { text-decoration: none; transition: all 0.3s ease; }
     z-index: 2;
 }
 
-/* --- 8. RESPONSIVE (MÓVIL) --- */
+/* --- 8. RESPONSIVE (Corrección para Móvil) --- */
 @media screen and (max-width: 768px) {
-    .navbar {
-        min-height: 80px;
-    }
-
-    .navbar .logo img { 
-        height: 55px !important; /* Ajuste para que quepa bien en celular */
-    }
+    .logo img { height: 40px; } /* Reducción mínima en móvil */
 
     .desktop-only { display: none; }
     .mobile-only { display: block; }
 
-    .menu-toggle {
-        display: flex;
-    }
+    .menu-toggle { display: flex; }
 
     .nav-links {
-        display: none; /* Oculto por defecto */
+        display: none; /* Se oculta para el menú hamburguesa */
         flex-direction: column;
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--color-fondo-oscuro);
-        padding: 30px 0;
+        padding: 2rem 0;
         text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .nav-links.active {
-        display: flex; /* Se activa con el script.js */
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-        margin-left: 0;
-    }
-
-    /* Animación X */
-    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+    .nav-links.active { display: flex; }
+    .nav-links li { margin: 15px 0; margin-left: 0; }
 }
 
-/* --- 9. WHATSAPP Y FOOTER --- */
+/* --- 9. ICONOS ORIGINALES Y FOOTER --- */
 .btn-whatsapp {
-    position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
+    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
     background-color: #25d366; color: white; border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
-    font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999;
+    font-size: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999;
 }
 
 .footer {
     background-color: var(--color-fondo-oscuro);
     color: white;
-    padding: 40px 0 20px;
-    margin-top: 50px;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
 }
